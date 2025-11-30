@@ -1,12 +1,13 @@
 import './App.css';
 import AppRouter from "./routing/AppRouter";
+import {CssBaseline} from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
+      <div>
+      <CssBaseline />
       <AppRouter />
-
-    </div>
+      </div>
   );
 }
 
