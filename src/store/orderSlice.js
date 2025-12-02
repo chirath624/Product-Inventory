@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import {fetchOrderByIdApi, fetchOrdersApi} from "../service/ordersService";
+import { fetchOrdersApi} from "../service/ordersService";
 
 
 export const fetchOrders = createAsyncThunk(
@@ -14,17 +14,7 @@ export const fetchOrders = createAsyncThunk(
     }
 );
 
-export const fetchOrderById = createAsyncThunk(
-    'orders/fetchById',
-    async (id, thunkAPI) => {
-        try {
-            const order = await fetchOrderByIdApi(id);
-            return order;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
-        }
-    }
-);
+
 
 const orderSlice = createSlice({
     name: 'orders',

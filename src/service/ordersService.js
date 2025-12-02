@@ -1,21 +1,30 @@
 import axiosService from "./axiosService";
-
-export const fetchOrdersApi = async () => {
-
+const statuses = [
+    'Pending',
+    'Shipped',
+    'Delivered',
+    'Cancelled',
+    'Processing',
+    'Completed'
+];
+export const fetchOrdersApi = async (limit) => {
     try {
-        const { data } = await axiosService.get('/carts?limit=30');
-        return data?.orders || [];
+        const { data } = await axiosService.get('/carts');
+        const carts = data?.carts || [];
+        return carts.map((cart) => ({
+            id: cart.id,
+            customerId: cart.userId,
+            totalProducts:  cart.totalProducts || 0,
+            totalQuantity:cart.totalQuantity ||0,
+            total: cart.total || 0,
+            discountedTotal: cart.discountedTotal || 0,
+            status: statuses[Math.floor(Math.random() * statuses.length)],
+            products:cart.products
+        }));
+
     } catch (error) {
         throw error;
     }
 };
 
-export const fetchOrderByIdApi = async (id) => {
-    try {
-        const { data } = await axiosService.get(`/orders/${id}`);
-        return data;
-    } catch (error) {
-        throw error;
-    }
-};
 
