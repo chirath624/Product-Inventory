@@ -1,6 +1,7 @@
 import { Chip } from "@mui/material";
 
 const OrderStatusBadge = ({ status, size = 'small' }) => {
+    console.log(status)
     const getStatusColor = (status) => {
         const statusColors = {
             'Pending': 'warning',
@@ -9,6 +10,7 @@ const OrderStatusBadge = ({ status, size = 'small' }) => {
             'Cancelled': 'error',
             'Processing': 'default',
             'Completed': 'success',
+            'In Stock': 'success',
 
         };
         return statusColors[status] || 'default';

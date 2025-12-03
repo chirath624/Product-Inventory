@@ -92,11 +92,11 @@ const ProductListPage = () => {
             width: 120,
             renderCell: (params) => {
 
-
                 return (
-                    <>
-                        <OrderStatusBadge status={params.availabilityStatus} size={"small"}/>.
-                    </>
+                    <OrderStatusBadge
+                        status={params.row.availabilityStatus}
+                        size="small"
+                    />
                 );
             },
         },
