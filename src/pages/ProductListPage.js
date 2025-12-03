@@ -53,20 +53,14 @@ const ProductListPage = () => {
     } = usePagination(filteredItems, 10);
 
 
-
-
-
     useEffect(() => {
             dispatch(fetchProducts());
 
     }, [dispatch]);
 
-    const handleRowClick = (params) => {
-        navigate(`/products/${params.id}`);
-    };
 
-    const handleViewClick = (id) => (e) => {
-        e.stopPropagation();
+
+    const handleViewClick = (id) => () => {
         navigate(`/products/${id}`);
     };
 

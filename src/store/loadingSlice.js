@@ -37,9 +37,7 @@ const loadingSlice = createSlice({
     },
 });
 
-export const { manualStartLoading, manualStopLoading } = loadingSlice.actions;
 
-// Selector: The app is loading if the counter is greater than 0
 export const selectIsGlobalLoading = (state) => state.globalLoading.loadingRequestCount > 0;
 
 export default loadingSlice.reducer;

@@ -13,6 +13,7 @@ import { fetchProductById, updateProduct } from '../store/productSlice';
 import ProductCard from '../components/ProductCard';
 import ConfirmationDialog from '../components/ConfirmationDialog';
 import {useAppDispatch, useAppSelector} from "../hooks/hooks";
+import {showSnackbar} from "../store/snackbarSlice";
 
 const ProductDetailPage = () => {
     const { id } = useParams();

@@ -7,6 +7,7 @@ export const store = configureStore({
         products: productReducer,
         orders: orderReducer,
         globalLoading: loadingReducer,
+
     }
 });
 
